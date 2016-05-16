@@ -1,5 +1,5 @@
-# angular2-quickstart
-Result of doing the Angular 2 Quickstart tutorial
+# tour-of-heroes
+Result of doing the Angular 2 Tour of Heroes tutorial
 
 Clone the repository
 <pre>
