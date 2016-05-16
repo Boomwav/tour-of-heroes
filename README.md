@@ -1,5 +1,5 @@
 # tour-of-heroes
-Result of doing the Angular 2 Tour of Heroes tutorial
+Result of doing the Angular 2 Tour of Heroes tutorial [tutorial pt1]
 
 Clone the repository
 <pre>
