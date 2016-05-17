@@ -9,8 +9,20 @@ export class Hero {
   selector: 'my-app',
   template: `
     <h2>My Heroes</h2>
+    
+    <div *ngIf="selectedHero">
+      <h2>{{selectedHero.name}} details!</h2>
+      <div><label>id: </label>{{selectedHero.id}}</div>
+      <div>
+          <label>name: </label>
+          <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+      </div>
+    </div>
+    
     <ul class="heroes">
-      <li *ngFor="let hero of heroes">
+      <li *ngFor="let hero of heroes" 
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">  
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </li>
     </ul>
@@ -66,12 +78,13 @@ export class Hero {
   `]
 })
 export class AppComponent {
+  selectedHero: Hero;
   public heroes = HEROES;
   title = "Tour of Heroes";
-  hero = {
-    id: 1,
-    name: "Windstorm"
-  };
+  
+  onSelect(hero: Hero) {
+    this.selectedHero = hero; 
+  }
 }
 
 var HEROES: Hero[] = [
