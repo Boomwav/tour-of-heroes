@@ -17,11 +17,10 @@ export class Hero {
     </div>
     `
 })
-
 export class AppComponent {
-  title = "Tour of Heroes",
-  hero = Hero = {
+  title = "Tour of Heroes";
+  hero = {
     id: 1,
     name: "Windstorm"
-  }
+  };
 }
