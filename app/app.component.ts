@@ -1,36 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import 'rxjs/Rx'; // load the full rxjs
 
-import {HeroDetailComponent} from './components/hero-detail.component';
-
-import { Hero } from './models/hero';
-
-import {HeroService} from './services/hero.service';
+import {HeroService} from "./services/hero.service";
+import {HeroesComponent} from './components/heroes.component';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: "app/app.component.html",
-  styleUrls: ["css/app.css"],
-  directives: [HeroDetailComponent],
-  providers: [HeroService]
+    selector: 'app',
+    templateUrl: 'app/app.component.html',
+    directives: [
+        ROUTER_DIRECTIVES,
+        HeroesComponent],
+    providers: [
+        HTTP_PROVIDERS,
+        ROUTER_PROVIDERS,
+        HeroService
+    ]
 })
-export class AppComponent implements  OnInit{
-  
-  constructor(private heroService: HeroService) {}
-  
-  selectedHero: Hero;
-  public heroes: Hero[];
-  title = "Tour of Heroes";
-  
-  ngOnInit() {
-    this.getHeroes();
-  }
-  
-  getHeroes() {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-  }
-  
-  onSelect(hero: Hero) {
-    this.selectedHero = hero; 
-  }
+@Routes([
+    
+])
+export class AppComponent {
+    title = "Tour of Heroes";
 }
-
